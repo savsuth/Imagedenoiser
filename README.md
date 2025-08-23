@@ -1,21 +1,19 @@
-# Denoising with GAN
-[Paper](https://uofi.box.com/shared/static/s16nc93x8j6ctd0ercx9juf5mqmqx4bp.pdf) | [Video](https://www.youtube.com/watch?v=Yh_Bsoe-Qj4)
+# Image Denoising by GAN
 
 ## Introduction
 
-Animation movie companies like Pixar and Dreamworks render their 3d scenes using a technique called Pathtracing which enables them to create high quality photorealistic frames. Pathtracing involves shooting 1000’s of rays into a pixel randomly(Monte Carlo) which will then hit the objects in the scene and based on the reflective property of the object the rays reflect or refract or get absorbed. The colors returned by these rays are averaged to get the color of the pixel and this process is repeated for all the pixels. Due to the computational complexity it might take 8-16 hours to render a single frame. 
+Path tracing is a rendering technique widely used in high-end animation studios such as Pixar and DreamWorks to produce photorealistic frames. It works by emitting thousands of Monte Carlo rays per pixel, which interact with objects in the scene through reflection, refraction, or absorption. The colors returned by these rays are averaged to compute each pixel’s final value. Although accurate, this process is computationally expensive — producing a single frame can take **8–16 hours**.  
 
-We are proposing a neural network based solution for reducing 8-16 hours to a couple of seconds using a Generative Adversarial Network. The main idea behind this proposed method is to render using small number of samples per pixel (let say 4 spp or 8 spp instead of 32K spp) and pass the noisy image to our network, which will generate a photorealistic image with high quality. 
+This project explores a **Generative Adversarial Network (GAN)-based denoising approach** to accelerate rendering. Instead of requiring tens of thousands of samples per pixel (e.g., 32K spp), the renderer outputs a noisy image with as few as **4–8 spp**. The GAN then reconstructs a high-quality, photorealistic image in a fraction of a second, reducing rendering time from hours to seconds.
 
 
 #### Table of Contents
 
 * [Installation](#installation)
-* [Running](#running)
 * [Dataset](#dataset)
+* [Running](#running)
 * [Hyperparameters](#hyperparameter)
 * [Results](#results)
-* [Improvements](#improvements)
 * [Credits](#credits)
 
 ## Installation
@@ -27,20 +25,16 @@ To run the project you will need:
  * [CKPT FILE](https://uofi.box.com/shared/static/21a5jwdiqpnx24c50cyolwzwycnr3fwe.gz)
  * [Dataset](https://uofi.box.com/shared/static/gy0t3vgwtlk1933xbtz1zvhlakkdac3n.zip)
 
-## Running
-
-Once you have all the depenedencies ready, do the folowing:
-
-Download the dataset extract it to a folder named 'dataset' (ONLY if you want to train, not needed to run).
-
-Extract the CKPT files to a folder named 'Checkpoints'
-
-Run main.py -- python3 main.py
-
-Go to the browser, if you are running it on a server then [ip-address]:8888, if you are on your local machine then localhost:8888
-
 ## Dataset
 For training, I sampled 40 images from Pixar titles and synthesized noise by adding Gaussian perturbations across a 5×5 design of standard-deviation settings (five sets, each spanning five σ values), producing 1,000 training samples (40 × 25). For validation, I used 10 images not present in the training set and applied Gaussian noise. The test set includes both synthetically noised images and real path-traced noisy renders.
+
+## Running
+
+1. Once you have all the depenedencies we are ready for the main part and follow the steps: 
+2. Download the dataset extract it to a folder named 'dataset' in your directory.
+3. Extract the CKPT files to a folder named 'Checkpoints'
+4. Runing the main.py -- python3 main.py
+5. After that go to the browser and if you are running it on a server then [ip-address]:8888 or if you are on your local machine then localhost:8888
 
 ## Hyperparameters
 * Number of iterations - 10K
@@ -50,26 +44,13 @@ For training, I sampled 40 images from Pixar titles and synthesized noise by add
 * Smoothness Loss Factor - 0.0001
 
 ## Results
-3D rendering test data:
-<img src="https://github.com/manumathewthomas/CS523Project3/blob/master/result1.PNG" alt="alt text" width="960" height="480">
 
 Real noise images:
 <img src="assets/result2.png" alt="Denoised sample" width="960" height="480">
-
-CT-Scan:
-<img src="https://github.com/manumathewthomas/CS523Project3/blob/master/result3.PNG" alt="alt text" width="960" height="480">
  
-
-## Improvements
-
-* Increase the num of iteration to 100K.
-* Train the network for different noises.
-* Make it work on a real-time app.
-
 ## Credits
 
 * [SRGAN](https://arxiv.org/pdf/1609.04802.pdf)
 * [Image De-raining using conditional generative adversarial network](https://arxiv.org/pdf/1701.05957.pdf)
 * [Creating photorealistic images from gameboy camera](http://www.pinchofintelligence.com/photorealistic-neural-network-gameboy/)
-* [CS20SI](cs20si.stanford.edu)
-* [CS231n](https://cs231n.github.io/)
+
