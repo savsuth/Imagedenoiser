@@ -9,7 +9,7 @@ This project explores a Generative Adversarial Network (GAN)-based denoising app
 
 ## Installation
 
-Requirments:
+Requirements:
  * python 3.5
  * tensorflow (v1.1 or v1.0)
  * PIL
