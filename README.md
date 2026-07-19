@@ -9,7 +9,7 @@ This project explores a Generative Adversarial Network (GAN)-based denoising app
 
 ## Installation
 
-To run the project you will need:
+Requirments:
  * python 3.5
  * tensorflow (v1.1 or v1.0)
  * PIL
@@ -34,7 +34,6 @@ Run main.py:
 Open the browser and navigate to:
 
 [ip-address]:8888 if running on a server
-localhost:8888 if running on your local machine
 
 ## Hyperparameters
 * Number of iterations - 10K
