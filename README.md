@@ -7,15 +7,6 @@ Path tracing is a rendering technique widely used in high-end animation studios 
 This project explores a Generative Adversarial Network (GAN)-based denoising approach to accelerate rendering. Instead of requiring tens of thousands of samples per pixel (e.g., 32K spp), the renderer outputs a noisy image with as few as 4–8 spp. The GAN then reconstructs a high-quality, photorealistic image in a fraction of a second, reducing rendering time from hours to seconds.
 
 
-#### Table of Contents
-
-* [Installation](#installation)
-* [Dataset](#dataset)
-* [Running](#running)
-* [Hyperparameters](#hyperparameter)
-* [Results](#results)
-* [Credits](#credits)
-
 ## Installation
 
 To run the project you will need:
