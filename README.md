@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Path tracing is a rendering technique used in high end animation studios such as Pixar and DreamWorks to produce photorealistic frames. It works by emitting thousands of Monte Carlo rays per pixel. These rays interact with objects in the scene through reflection, refraction, and absorption, and the returned colors are averaged to compute each pixel's final value. This produces accurate results, but it is computationally expensive, and rendering a single frame can take 8 to 16 hours.
+Path tracing is a rendering technique widely used in high-end animation studios such as Pixar and DreamWorks to produce photorealistic frames. It operates by emitting thousands of Monte Carlo rays per pixel. These rays interact with objects in the scene through reflection, refraction, and absorption, and the returned colors are averaged to compute each pixel's final value. This approach produces accurate results but is computationally expensive; rendering a single frame can require 8 to 16 hours.
 
-This project looks at a Generative Adversarial Network (GAN) approach to denoising as a way to speed up that process. Instead of requiring tens of thousands of samples per pixel (for example, 32K spp), the renderer only needs to output a noisy image at 4 to 8 spp. The GAN then reconstructs that into a high quality, photorealistic image in a fraction of a second, cutting rendering time down from hours to seconds.
+This project investigates a Generative Adversarial Network (GAN) approach to denoising as a method of reducing that rendering time. Rather than requiring tens of thousands of samples per pixel (32K spp), the renderer produces a noisy image using as few as 4 to 8 spp. The GAN then reconstructs the image into a high-quality, photorealistic result in a fraction of a second, reducing total rendering time from hours to seconds.
 
 ## Installation
 
@@ -17,9 +17,9 @@ This project looks at a Generative Adversarial Network (GAN) approach to denoisi
 
 ## Dataset
 
-For training, 40 images were sampled from Pixar titles. Noise was synthesized by adding Gaussian perturbations across a 5x5 grid of standard deviation settings, five sets spanning five sigma values each, which produced 1,000 training samples in total (40 times 25).
+The training set consists of 40 images sampled from Pixar titles. Noise was synthesized by applying Gaussian perturbations across a 5x5 grid of standard deviation settings, comprising five sets of five sigma values each, producing 1,000 training samples in total (40 by 25).
 
-For validation, 10 images not included in the training set were used with Gaussian noise applied. The test set includes both synthetically noised images and real path traced noisy renders.
+The validation set consists of 10 images not included in the training set, with Gaussian noise applied. The test set includes both synthetically noised images and real path-traced noisy renders.
 
 ## Running
 
@@ -45,7 +45,7 @@ For validation, 10 images not included in the training set were used with Gaussi
 
 ## Results
 
-Denoising applied to real noisy renders:
+Denoising results on real noisy renders are shown below.
 
 <img src="assets/result2.png" alt="Denoised sample" width="960" height="480">
 
