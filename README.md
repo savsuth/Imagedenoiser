@@ -1,4 +1,4 @@
-# Image Denoising by GAN
+# Image Denoising with GAN
 
 ## Introduction
 
@@ -6,49 +6,50 @@ Path tracing is a rendering technique widely used in high-end animation studios 
 
 This project explores a Generative Adversarial Network (GAN)-based denoising approach to accelerate rendering. Instead of requiring tens of thousands of samples per pixel (e.g., 32K spp), the renderer outputs a noisy image with as few as 4–8 spp. The GAN then reconstructs a high-quality, photorealistic image in a fraction of a second, reducing rendering time from hours to seconds.
 
-
 ## Installation
 
-Requirements:
- * python 3.5
- * tensorflow (v1.1 or v1.0)
- * PIL
- * [CKPT FILE](https://uofi.box.com/shared/static/21a5jwdiqpnx24c50cyolwzwycnr3fwe.gz)
- * [Dataset](https://uofi.box.com/shared/static/gy0t3vgwtlk1933xbtz1zvhlakkdac3n.zip)
+**Requirements:**
+- Python 3.10
+- TensorFlow (v1.0 or v1.1)
+- PIL
+- [Checkpoint file](https://uofi.box.com/shared/static/21a5jwdiqpnx24c50cyolwzwycnr3fwe.gz)
+- [Dataset](https://uofi.box.com/shared/static/gy0t3vgwtlk1933xbtz1zvhlakkdac3n.zip)
 
 ## Dataset
-For training, I sampled 40 images from Pixar titles and synthesized noise by adding Gaussian perturbations across a 5×5 grid of standard-deviation settings (five sets, each spanning five σ values), producing 1,000 training samples (40 × 25). For validation, I used 10 images not present in the training set and applied Gaussian noise. The test set includes both synthetically noised images and real path-traced noisy renders.
+
+For training, 40 images were sampled from Pixar titles, and noise was synthesized by adding Gaussian perturbations across a 5×5 grid of standard-deviation settings (five sets, each spanning five σ values), producing 1,000 training samples (40 × 25).
+
+For validation, 10 images not present in the training set were used, with Gaussian noise applied. The test set includes both synthetically noised images and real path-traced noisy renders.
 
 ## Running
 
-Follow these steps:
-
-Download the dataset and extract it to a folder named dataset in your directory.
-Extract the CKPT files to a folder named Checkpoints.
-Run main.py:
-
-
+1. Download the dataset and extract it to a folder named `dataset` in your project directory.
+2. Extract the checkpoint files to a folder named `Checkpoints`.
+3. Run the main script:
+```bash
    python3 main.py
-
-
-Open the browser and navigate to:
-
-[ip-address]:8888 if running on a server
+```
+4. Open your browser and navigate to:
+   - `localhost:8888` if running locally
+   - `[ip-address]:8888` if running on a server
 
 ## Hyperparameters
-* Number of iterations - 10K
-* Adversarial Loss Factor - 0.5
-* Pixel Loss Factor - 1.0
-* Feature Loss Factor - 1.0
-* Smoothness Loss Factor - 0.0001
+
+| Parameter | Value |
+|---|---|
+| Iterations | 10K |
+| Adversarial loss factor | 0.5 |
+| Pixel loss factor | 1.0 |
+| Feature loss factor | 1.0 |
+| Smoothness loss factor | 0.0001 |
 
 ## Results
 
-Real noise images:
+Denoising applied to real noisy renders:
+
 <img src="assets/result2.png" alt="Denoised sample" width="960" height="480">
- 
+
 ## Credits
 
-* [SRGAN](https://arxiv.org/pdf/1609.04802.pdf)
-* [Creating photorealistic images from gameboy camera](http://www.pinchofintelligence.com/photorealistic-neural-network-gameboy/)
-
+- [SRGAN](https://arxiv.org/pdf/1609.04802.pdf)
+- [Creating Photorealistic Images from Game Boy Camera](http://www.pinchofintelligence.com/photorealistic-neural-network-gameboy/)
