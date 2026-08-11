@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Path tracing is a rendering technique widely used in high-end animation studios such as Pixar and DreamWorks to produce photorealistic frames. It works by emitting thousands of Monte Carlo rays per pixel, which interact with objects in the scene through reflection, refraction, or absorption. The colors returned by these rays are averaged to compute each pixel's final value. Although accurate, this process is computationally expensive — producing a single frame can take 8–16 hours.
+Path tracing is a rendering technique used in high end animation studios such as Pixar and DreamWorks to produce photorealistic frames. It works by emitting thousands of Monte Carlo rays per pixel. These rays interact with objects in the scene through reflection, refraction, and absorption, and the returned colors are averaged to compute each pixel's final value. This produces accurate results, but it is computationally expensive, and rendering a single frame can take 8 to 16 hours.
 
-This project explores a Generative Adversarial Network (GAN)-based denoising approach to accelerate rendering. Instead of requiring tens of thousands of samples per pixel (e.g., 32K spp), the renderer outputs a noisy image with as few as 4–8 spp. The GAN then reconstructs a high-quality, photorealistic image in a fraction of a second, reducing rendering time from hours to seconds.
+This project looks at a Generative Adversarial Network (GAN) approach to denoising as a way to speed up that process. Instead of requiring tens of thousands of samples per pixel (for example, 32K spp), the renderer only needs to output a noisy image at 4 to 8 spp. The GAN then reconstructs that into a high quality, photorealistic image in a fraction of a second, cutting rendering time down from hours to seconds.
 
 ## Installation
 
@@ -17,19 +17,19 @@ This project explores a Generative Adversarial Network (GAN)-based denoising app
 
 ## Dataset
 
-For training, 40 images were sampled from Pixar titles, and noise was synthesized by adding Gaussian perturbations across a 5×5 grid of standard-deviation settings (five sets, each spanning five σ values), producing 1,000 training samples (40 × 25).
+For training, 40 images were sampled from Pixar titles. Noise was synthesized by adding Gaussian perturbations across a 5x5 grid of standard deviation settings, five sets spanning five sigma values each, which produced 1,000 training samples in total (40 times 25).
 
-For validation, 10 images not present in the training set were used, with Gaussian noise applied. The test set includes both synthetically noised images and real path-traced noisy renders.
+For validation, 10 images not included in the training set were used with Gaussian noise applied. The test set includes both synthetically noised images and real path traced noisy renders.
 
 ## Running
 
-1. Download the dataset and extract it to a folder named `dataset` in your project directory.
-2. Extract the checkpoint files to a folder named `Checkpoints`.
+1. Download the dataset and extract it into a folder named `dataset` in the project directory.
+2. Extract the checkpoint files into a folder named `Checkpoints`.
 3. Run the main script:
 ```bash
    python3 main.py
 ```
-4. Open your browser and navigate to:
+4. Open a browser and navigate to:
    - `localhost:8888` if running locally
    - `[ip-address]:8888` if running on a server
 
@@ -49,7 +49,7 @@ Denoising applied to real noisy renders:
 
 <img src="assets/result2.png" alt="Denoised sample" width="960" height="480">
 
-## Reference 
+## Reference
 
 - [SRGAN](https://arxiv.org/pdf/1609.04802.pdf)
 - [Creating Photorealistic Images from Game Boy Camera](http://www.pinchofintelligence.com/photorealistic-neural-network-gameboy/)
