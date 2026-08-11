@@ -49,7 +49,7 @@ Denoising applied to real noisy renders:
 
 <img src="assets/result2.png" alt="Denoised sample" width="960" height="480">
 
-## Credits
+## Reference 
 
 - [SRGAN](https://arxiv.org/pdf/1609.04802.pdf)
 - [Creating Photorealistic Images from Game Boy Camera](http://www.pinchofintelligence.com/photorealistic-neural-network-gameboy/)
