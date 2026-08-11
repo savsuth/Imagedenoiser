@@ -50,6 +50,5 @@ Real noise images:
 ## Credits
 
 * [SRGAN](https://arxiv.org/pdf/1609.04802.pdf)
-* [Image De-raining using conditional generative adversarial network](https://arxiv.org/pdf/1701.05957.pdf)
 * [Creating photorealistic images from gameboy camera](http://www.pinchofintelligence.com/photorealistic-neural-network-gameboy/)
 
